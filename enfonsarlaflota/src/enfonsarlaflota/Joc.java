@@ -15,7 +15,7 @@ public class Joc {
 	public static void joc() {
 		char[][] jug1Sol, jug1Secret; //Jugador (Sol = Visible Secret = Secreta)
 		char[][] maq1Sol, maq1Secret; //Maquina (Sol = Visible Secret = Secreta)
-		int[] memoria = new int [2]; //memoria de la inteligencia artificial [0] = fila [1] = col
+		int[] memoria = {11, 11}; //memoria de la inteligencia artificial [0] = fila [1] = col
 		char resp;
 		int TAB = 10;
 		boolean ok = false;

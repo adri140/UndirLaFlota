@@ -32,21 +32,31 @@ public class Tiradas {
 			torna = false;
 			ok = false;
 			ok2 = false;
-			do {
-				if (memoria[0] != 11 && memoria[1] != 11) {
+			
+			if (memoria[0] != 11 && memoria[1] != 11) {
+				do {
 					fila = memoria[0];
 					col = memoria[1];
 					buscar = IA.genSearch(fila, col); //genera la direccion hacia donde buscar en funcion de su posicion
 					if(buscar == 0 || buscar == 1) col = IA.col(buscar, col); //devuelve la columna donde dispara
 					else fila = IA.fila(buscar, fila); //devuelve la fila donde va a disparar
-				}
-				else {
+					
+					if(jug1Sol[fila][col] == '?') ok = true;
+					else ok = false;
+				}while (ok != true);
+			}
+			else {
+				do {
 					fila = Entradas.genRandom(TAB);
 					col = Entradas.genRandom(TAB);
 					if(jug1Sol[fila][col] == '?') ok = true;
 					else ok = false;
-				}
-			}while(ok != true);
+					
+					if(jug1Sol[fila][col] == '?') ok = true;
+					else ok = false;
+				}while(ok != true);
+			}
+		
 			jug1Sol[fila][col] = jug1Secret[fila][col];
 			if(jug1Sol[fila][col] == 'B') {
 				memoria[0] = fila;
@@ -80,17 +90,9 @@ public class Tiradas {
 		boolean ok;
 		boolean ok2;
 		boolean torna; //indica si torna a tirar o no
-		/*System.out.println("Secreta MAQ:");
-		mostrar(maq1Secret, TAB); //m1Sol
-		System.out.println("Solucion MAQ:");
-		mostrar(maq1Sol, TAB); //m1Sol*/
 		do {
 			System.out.println("Maquina Sol: ");
 			Salidas.mostrar(maq1Sol, TAB); //m1Sol
-			/*System.out.println("Jugador Sol: ");
-			Salidas.mostrar(jug1Sol, TAB); //m1Sol*/
-			//System.out.println("Maq Sec: ");
-			//Salidas.mostrar(maq1Secret, TAB); //m1Sol
 			torna = false;
 			ok = false;
 			ok2 = false;
