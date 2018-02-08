@@ -13,29 +13,47 @@ public class Tiradas {
 	 * @param jug1Secret Taulell de l'usuari, oculta la solucio.
 	 * @param TAB
 	 * @param Player
+	 * @param memoria
 	 * @return Torna un boolean.
 	 * 		<ul>	
 	 * 			<li>True: Indica que la partida ha terminat.</li>
 	 * 			<li>False: Indica que la partida no ha terminat</li>
 	 * 		</ul>
 	 */
-	public static boolean MaqARM(char[][] jug1Sol, char[][] jug1Secret, int TAB, int Player) {
+	public static boolean MaqARM(char[][] jug1Sol, char[][] jug1Secret, int TAB, int Player, int[] memoria) {
 		boolean ok; //indica si no ha disparat habans a aquesta posicio
 		boolean ok2; //indica si ha tocat o undit algun baixell i si ha guanyat.
 		boolean torna ; //indica si torna a tirar o no
-		int fila, col;
+		int fila = 0; 
+		int col = 0;
+		int buscar;
+		
+		
+		
+		
 		do {
 			torna = false;
 			ok = false;
 			ok2 = false;
 			do {
-				fila = Entradas.genRandom(TAB);
-				col = Entradas.genRandom(TAB);
-				if(jug1Sol[fila][col] == '?') ok = true;
-				else ok = false;
+				if (memoria[0] != 11 && memoria[1] != 11) {
+					fila = memoria[0];
+					col = memoria[1];
+					buscar = Ia.genSearch(fila, col);
+					if(buscar == 0 || buscar == 1) col = Ia.Col(buscar, col);
+					else fila = Ia.Fila(buscar, fila);
+				}
+				else {
+					fila = Entradas.genRandom(TAB);
+					col = Entradas.genRandom(TAB);
+					if(jug1Sol[fila][col] == '?') ok = true;
+					else ok = false;
+				}
 			}while(ok != true);
 			jug1Sol[fila][col] = jug1Secret[fila][col];
 			if(jug1Sol[fila][col] == 'B') {
+				memoria[0] = fila;
+				memoria[1] = col;
 				ok2 = Comprovaciones.comprovarTirada(fila, col, jug1Sol, jug1Secret, TAB, Player);
 				torna = true;
 				if(ok2 != false) ok2 = Comprovaciones.comprovarTablero(jug1Sol, jug1Secret, TAB, Player);
@@ -70,8 +88,8 @@ public class Tiradas {
 			Salidas.mostrar(maq1Sol, TAB); //m1Sol
 			/*System.out.println("Jugador Sol: ");
 			Salidas.mostrar(jug1Sol, TAB); //m1Sol*/
-			System.out.println("Maq Sec: ");
-			Salidas.mostrar(maq1Secret, TAB); //m1Sol
+			//System.out.println("Maq Sec: ");
+			//Salidas.mostrar(maq1Secret, TAB); //m1Sol
 			torna = false;
 			ok = false;
 			ok2 = false;
