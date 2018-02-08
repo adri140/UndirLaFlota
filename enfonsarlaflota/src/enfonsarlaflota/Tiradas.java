@@ -28,9 +28,6 @@ public class Tiradas {
 		int col = 0;
 		int buscar;
 		
-		
-		
-		
 		do {
 			torna = false;
 			ok = false;
@@ -39,9 +36,9 @@ public class Tiradas {
 				if (memoria[0] != 11 && memoria[1] != 11) {
 					fila = memoria[0];
 					col = memoria[1];
-					buscar = Ia.genSearch(fila, col);
-					if(buscar == 0 || buscar == 1) col = Ia.Col(buscar, col);
-					else fila = Ia.Fila(buscar, fila);
+					buscar = IA.genSearch(fila, col); //genera la direccion hacia donde buscar en funcion de su posicion
+					if(buscar == 0 || buscar == 1) col = IA.col(buscar, col); //devuelve la columna donde dispara
+					else fila = IA.fila(buscar, fila); //devuelve la fila donde va a disparar
 				}
 				else {
 					fila = Entradas.genRandom(TAB);
@@ -56,7 +53,11 @@ public class Tiradas {
 				memoria[1] = col;
 				ok2 = Comprovaciones.comprovarTirada(fila, col, jug1Sol, jug1Secret, TAB, Player);
 				torna = true;
-				if(ok2 != false) ok2 = Comprovaciones.comprovarTablero(jug1Sol, jug1Secret, TAB, Player);
+				if(ok2 != false) {
+					memoria[0] = 11;
+					memoria[1] = 11;
+					ok2 = Comprovaciones.comprovarTablero(jug1Sol, jug1Secret, TAB, Player);
+				}
 			}
 		}while(torna != false && ok2 != true);
 		return ok2;
