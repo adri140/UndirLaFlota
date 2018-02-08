@@ -40,8 +40,10 @@ public class Tiradas {
 					buscar = IA.genSearch(fila, col); //genera la direccion hacia donde buscar en funcion de su posicion
 					if(buscar == 0 || buscar == 1) col = IA.col(buscar, col); //devuelve la columna donde dispara
 					else fila = IA.fila(buscar, fila); //devuelve la fila donde va a disparar
-					
-					if(jug1Sol[fila][col] == '?') ok = true;
+					if((fila >= 0 && fila <= 9) && (col >= 0 && col <= 9)) {
+						if(jug1Sol[fila][col] == '?') ok = true;
+						else ok = false;
+					}
 					else ok = false;
 				}while (ok != true);
 			}
