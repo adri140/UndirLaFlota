@@ -58,12 +58,12 @@ public class Joc {
 			//Player = (Player % 2) + 1;
 			switch (Player) {
 			case 1:
-				System.out.println("Maquina Sol: ");
-				Salidas.mostrar(maq1Sol, TAB); //m1Sol
+				//System.out.println("Maquina Sol: ");
+				//Salidas.mostrar(maq1Sol, TAB); //m1Sol
 				/*System.out.println("Jugador Sol: ");
 				Salidas.mostrar(jug1Sol, TAB); //m1Sol*/
-				System.out.println("Maq Sec: ");
-				Salidas.mostrar(maq1Secret, TAB); //m1Sol
+				//System.out.println("Maq Sec: ");
+				//Salidas.mostrar(maq1Secret, TAB); //m1Sol
 				
 				ok = Tiradas.PlayerARM(maq1Sol, maq1Secret, TAB, Player);
 				Player++;

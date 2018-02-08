@@ -355,8 +355,8 @@ public class Comprovaciones {
 		}
 		
 		if(Player == 1) {
-			if (ok == true) System.out.println("Baixell enfonsat");
-			else System.out.println("Baixell tocat.");
+			if (ok == true) System.out.println("Baixell enfonsat, tornes a disparar.");
+			else System.out.println("Baixell tocat, tornes a disparar.");
 		}
 		return ok;
 	}
