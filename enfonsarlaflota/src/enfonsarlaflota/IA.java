@@ -13,9 +13,9 @@ public class IA {
 		if(fila == 0 && col == 0) {
 			resposta = rnd.nextInt(2);
 			switch(resposta) {
-				case 1: resposta = 0;
+				case 0: resposta = 0;
 			break;
-				case 2: resposta = 2;
+				case 1: resposta = 2;
 			break;
 			}
 		}
@@ -23,9 +23,9 @@ public class IA {
 			if(fila == 9 && col == 0) {
 				resposta = rnd.nextInt(2);
 				switch(resposta) {
-					case 1: resposta = 0;
+					case 0: resposta = 0;
 				break;
-					case 2: resposta = 3;
+					case 1: resposta = 3;
 				break;
 				}
 			}
@@ -33,9 +33,9 @@ public class IA {
 				if(fila == 0 && col == 9) {
 					resposta = rnd.nextInt(2);
 					switch(resposta) {
-						case 1: resposta = 1;
+						case 0: resposta = 1;
 					break;
-						case 2: resposta = 2;
+						case 1: resposta = 2;
 					break;
 					}
 				}
@@ -43,9 +43,9 @@ public class IA {
 					if(fila == 9 && col ==9) {
 						resposta = rnd.nextInt(2);
 						switch(resposta) {
-							case 1: resposta = 3;
+							case 0: resposta = 3;
 						break;
-							case 2: resposta = 1;
+							case 1: resposta = 1;
 						break;
 						}
 					}
@@ -53,11 +53,11 @@ public class IA {
 						if(fila == 0) {
 							resposta = rnd.nextInt(3);
 							switch(resposta) {
-								case 1: resposta = 3;
+								case 0: resposta = 0;
 							break;
-								case 2: resposta = 0;
+								case 1: resposta = 1;
 							break;
-								case 3: resposta = 2;
+								case 2: resposta = 3;
 							break;
 							}
 						}
@@ -65,11 +65,11 @@ public class IA {
 							if(fila == 9) {
 								resposta = rnd.nextInt(3);
 								switch(resposta) {
-									case 1: resposta = 3;
+									case 0: resposta = 0;
 								break;
-									case 2: resposta = 1;
+									case 1: resposta = 1;
 								break;
-									case 3: resposta = 2;
+									case 2: resposta = 3;
 								break;
 								}
 							}
@@ -77,11 +77,11 @@ public class IA {
 								if(col == 0) {
 									resposta = rnd.nextInt(3);
 									switch(resposta) {
-										case 1: resposta = 0;
+										case 0: resposta = 0;
 									break;
-										case 2: resposta = 1;
+										case 1: resposta = 2;
 									break;
-										case 3: resposta = 2;
+										case 2: resposta = 3;
 									break;
 									}
 								}
@@ -89,11 +89,11 @@ public class IA {
 									if(col == 9) {
 										resposta = rnd.nextInt(3);
 										switch(resposta) {
-											case 1: resposta = 0;
+											case 0: resposta = 1;
 										break;
-											case 2: resposta = 1;
+											case 1: resposta = 2;
 										break;
-											case 3: resposta = 3;
+											case 2: resposta = 3;
 										break;
 										}
 									}
@@ -121,9 +121,4 @@ public class IA {
 		else fila = fila - 1;
 		return fila;
 	}
-	
-	
-	
-	
-	
 }

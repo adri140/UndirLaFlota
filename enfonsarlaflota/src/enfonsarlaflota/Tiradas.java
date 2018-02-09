@@ -45,15 +45,13 @@ public class Tiradas {
 						else ok = false;
 					}
 					else ok = false;
+					System.out.println("fila " + fila + " col " + col + " ok");
 				}while (ok != true);
 			}
 			else {
 				do {
 					fila = Entradas.genRandom(TAB);
 					col = Entradas.genRandom(TAB);
-					if(jug1Sol[fila][col] == '?') ok = true;
-					else ok = false;
-					
 					if(jug1Sol[fila][col] == '?') ok = true;
 					else ok = false;
 				}while(ok != true);

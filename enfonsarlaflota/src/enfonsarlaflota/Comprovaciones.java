@@ -414,7 +414,7 @@ public class Comprovaciones {
 				pos--;
 			}while(ok != false && pos > -1);
 			if(ok != false) {
-				if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+				if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
 				else ok = false;
 			}
 		}
