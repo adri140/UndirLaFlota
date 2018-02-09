@@ -74,7 +74,17 @@ public class Joc {
 				break;
 			}
 		}while(Player < 2 && ok != true);
-		if (ok != false) System.out.println("Guanya el jugador " + Player + ". ");
+		if (ok != false) {
+			System.out.println("Guanya el jugador " + Player + ". ");
+			System.out.println("Jugador Sol: ");
+			Salidas.mostrar(jug1Sol, TAB);
+			System.out.println("Jugador Secret: ");
+			Salidas.mostrar(jug1Secret, TAB);
+			System.out.println("Maq Sol: ");
+			Salidas.mostrar(maq1Sol, TAB);
+			System.out.println("Maq Secret: ");
+			Salidas.mostrar(maq1Secret, TAB);
+		}
 		
 		return ok;
 	}

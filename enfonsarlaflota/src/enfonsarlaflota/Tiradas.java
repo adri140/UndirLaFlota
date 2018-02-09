@@ -45,7 +45,6 @@ public class Tiradas {
 						else ok = false;
 					}
 					else ok = false;
-					System.out.println("fila " + fila + " col " + col + " ok");
 				}while (ok != true);
 			}
 			else {
