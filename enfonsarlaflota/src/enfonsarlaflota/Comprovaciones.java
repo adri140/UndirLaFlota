@@ -1,17 +1,17 @@
 package enfonsarlaflota;
 /**
  * <h2>Clase Comprovaciones</h2>
- * Conte tots els methods que comproven que els baixells es posicionen a una ubicació coorecte, a més de escriure els baixells als taulers i comprovar si estan undits o tocats.
+ * Conte tots els methods que comproven que els vaixells es posicionen a una ubicació coorecte, a més de escriure els vaixells als taulers i comprovar si estan undits o tocats.
  * @author Adrian Recio Marín
- * @version 1.0.A
- * @since 6/2/2018
+ * @version Console-2
+ * @since 10/02/2018
  */
 public class Comprovaciones {
 	/**
-	 * Method <b>comprovarTirada</b>, comprova si el baixell esta tocat o undit, i mostra per consola el resultat.
-	 * @param fila Indica la fila on esta situat el baixell.
-	 * @param col Indica la columna on esta situat el baixell.
-	 * @param MatSol És el taulell que es mostra a tot el mon.
+	 * Method <b>comprovarTirada</b>, comprova si el vaixell esta tocat o undit, i mostra per consola el resultat.
+	 * @param fila Indica la fila on esta situat el vaixell.
+	 * @param col Indica la columna on esta situat el vaixell.
+	 * @param MatSol És el taulell que es mostra a tot el món.
 	 * @param MatSecret És el taulell que conte la solucio secreta.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @param Player Indica el jugador.
@@ -24,7 +24,6 @@ public class Comprovaciones {
 	public static boolean comprovarTirada(int fila, int col, char[][] MatSol, char[][] MatSecret, int TAB, int Player) {
 		int i = 1;
 		boolean ok = true;
-		//comprovar si esta undit:
 		if(fila == 0 && col == 0) {
 			if(MatSecret[fila][col + 1] == 'B') {
 				while(ok != false && MatSecret[fila][col + i] != 'A' && col + i < TAB - 1) {
@@ -123,7 +122,7 @@ public class Comprovaciones {
 									if(MatSecret[fila][col + i] != 'A') i++;
 									else ok = false;
 								}
-								if(i > 9) i--; //esto no estaba pruebas????
+								if(i > 9) i--; 
 								col = col + i;
 								i = 1;
 								ok = true;
@@ -148,7 +147,7 @@ public class Comprovaciones {
 									}
 								}
 								else {
-									//para abajo
+									//cap abaix
 									while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
 										if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 										else ok = false;
@@ -355,21 +354,21 @@ public class Comprovaciones {
 		}
 		
 		if(Player == 1) {
-			if (ok == true) System.out.println("Baixell enfonsat, tornes a disparar.");
-			else System.out.println("Baixell tocat, tornes a disparar.");
+			if (ok == true) System.out.println("Vaixell enfonsat, tornes a disparar.");
+			else System.out.println("Vaixell tocat, tornes a disparar.");
 		}
 		return ok;
 	}
 	/**
-	 * Method <b>comprovarTablero</b>, Comprova si tots els baixells dels taulell han sigut descoberts.
-	 * @param Solucion Taulell que tot el mon pot veure.
-	 * @param Secret Taulell que conte la solucio, secret.
+	 * Method <b>comprovarTablero</b>, Comprova si tots els vaixells dels taulell han sigut descoberts.
+	 * @param Solucion Taulell que tot el món pot veure.
+	 * @param Secret Taulell que conte la solució, secret.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @param Player Indica el jugador.
 	 * @return Retorna un boolean:
 	 * 	<ul>
-	 * 		<li>True: Tots els baixells trobats i undits.</li>
-	 * 		<li>False: Algun baixell no torbat o no undit.</li>
+	 * 		<li>True: Tots els vaixells trobats i undits.</li>
+	 * 		<li>False: Algun vaixell no torbat o no undit.</li>
 	 * 	</ul>
 	 */
 	public static boolean comprovarTablero(char[][] Solucion, char[][] Secret, int TAB, int Player) {
@@ -391,20 +390,20 @@ public class Comprovaciones {
 		return ok;
 	}
 	/**
-	 * Method <b>BarcosDireccion3</b>, Comprova que és pot posar els baixells amb direccio 2 i 3.
-	 * @param FilaMod Indica la fila on comença el baixell.
-	 * @param ColMod Indica la columna on comença el baixell.
-	 * @param pos Indica el numero de posicions que tindra el baixell.
+	 * Method <b>BarcosDireccion3</b>, Comprova que és pot posar els vaixells amb direcció 2 i 3.
+	 * @param FilaMod Indica la fila on comença el vaixell.
+	 * @param ColMod Indica la columna on comença el vaixell.
+	 * @param pos Indica el numero de posicions que tindra el vaixell.
 	 * @param TAB Indica la alçada i la amplada del taulell.
-	 * @param maq1Secret Taulell secret, on es realitzaran totes les comprovacions.
+	 * @param MatSecret Taulell secret, on es realitzaran totes les comprovacions.
 	 * @return Retorna un boolean.
 	 * 	<ul>
-	 * 		<li>True: El baixell es pot ubicar a a questa posició.</li>
-	 * 		<li>False: El baixell no es pot ubicar a aquesta posició.</li>
+	 * 		<li>True: El vaixell és pot ubicar a a questa posició.</li>
+	 * 		<li>False: El vaixell no és pot ubicar a aquesta posició.</li>
 	 * 	</ul>
 	 */
 	public static boolean BarcosDireccion3(int FilaMod, int ColMod, int pos, int TAB, char[][] MatSecret) {
-		boolean ok = false; //desplacamiento hacia el 9 de 0 a 9
+		boolean ok = false; //desplaçament de 0 a 9 fila
 		
 		if(FilaMod == 0 && ColMod == 0) {
 			do {
@@ -460,23 +459,23 @@ public class Comprovaciones {
 					else {
 						if(FilaMod == 0) {
 							do {
-								if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+								if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 								else ok = false;
 								FilaMod++;
 								pos--;
 							}while(ok != false && pos > -1);
 							if (ok != false) {
-								if(maq1Secret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+								if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 								else ok = false;
 							}
 						}
 						else {
 							if(FilaMod == 9) {
-								if(maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B' && maq1Secret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
+								if(MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B' && MatSecret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
 								else ok = false;
 								if(ok != false) {
 									do {
-										if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
+										if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B') ok = true;
 										else ok = false;
 										FilaMod++;
 										pos--;
@@ -485,51 +484,50 @@ public class Comprovaciones {
 							}
 							else {
 								if(ColMod == 0) {
-									if(maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
+									if(MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
 									else ok = false;
 									if(ok != false) {
 										do {
-											if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
+											if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B') ok = true;
 											else ok = false;
 											FilaMod++;
 											pos--;
 										}while(ok != false && pos > -1);
 										if(ok != false && FilaMod < TAB - 1) {
-											if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
+											if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B') ok = true;
 											else ok = false;
 										}
 									}
 								}
 								else {
 									if(ColMod == 9) {
-										if(maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B') ok = true;
+										if(MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B') ok = true;
 										else ok = false;
 										if(ok != false) {
 											do {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 												else ok = false;
 												FilaMod++;
 												pos--;
 											}while(ok != false && pos > -1);
 											if(ok != false && FilaMod < TAB) {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 												else ok = false;
 											}
 										}
 									}
 									else {
-										//System.out.println("Fila " + FilaMod + " Col " + ColMod + " Direccion ");
-										if(maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B' && maq1Secret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
+										if(MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B' && MatSecret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
 										else ok = false;
 										if(ok != false) {
 											do {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod ][ColMod + 1] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod ][ColMod + 1] != 'B') ok = true;
 												else ok = false;
 												FilaMod++;
 												pos--;
 											}while(ok != false && pos > -1 && FilaMod < TAB - 1);
 											if(ok != false) {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod ][ColMod + 1] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod ][ColMod + 1] != 'B') ok = true;
 												else ok = false;
 											}
 										}
@@ -544,102 +542,102 @@ public class Comprovaciones {
 		return ok;
 	}
 	/**
-	 * Method <b>BarcosDireccion0</b>, Comprova que és pot posar els baixells amb direccio 0 i 1.
-	 * @param FilaMod Indica la fila on comença el baixell.
-	 * @param ColMod Indica la columna on comença el baixell.
-	 * @param pos Indica el numero de posicions que tindra el baixell.
+	 * Method <b>BarcosDireccion0</b>, Comprova que és pot posar els vaixells amb direcció 0 i 1.
+	 * @param FilaMod Indica la fila on comença elvaixell.
+	 * @param ColMod Indica la columna on comença el vaixell.
+	 * @param pos Indica el numero de posicions que tindra el vaixell.
 	 * @param TAB Indica la alçada i la amplada del taulell.
-	 * @param maq1Secret Taulell secret, on es realitzaran totes les comprovacions.
+	 * @param MatSecret Taulell secret, on és realitzaran totes les comprovacions.
 	 * @return Retorna un boolean.
 	 * 	<ul>
-	 * 		<li>True: El baixell es pot ubicar a a questa posició.</li>
-	 * 		<li>False: El baixell no es pot ubicar a aquesta posició.</li>
+	 * 		<li>True: El vaixell es pot ubicar a a questa posició.</li>
+	 * 		<li>False: El vaixell no es pot ubicar a aquesta posició.</li>
 	 * 	</ul>
 	 */
-	public static boolean BarcosDireccion0(int FilaMod, int ColMod, int pos, int TAB, char[][] maq1Secret) {
-		boolean ok = false; //desplacamiento hacia la derecha
+	public static boolean BarcosDireccion0(int FilaMod, int ColMod, int pos, int TAB, char[][] MatSecret) {
+		boolean ok = false; //desplaçament cap a la dreta columna
 		
 		if(FilaMod == 0 && ColMod == 0) {
 			do {
-				if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+				if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 				else ok = false;
 				pos--;
 				ColMod++;
 			}while(ok != false && pos > -1);
 			if(ok != false) {
-				if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+				if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 				else ok = false;
 			}
 		}
 		else {
 			if(FilaMod == 9 && ColMod == 0) {
 				do {
-					if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+					if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 					else ok = false;
 					pos--;
 					ColMod++;
 				}while(ok != false && pos > -1);
 				if(ok != false) {
-					if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+					if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 					else ok = false;
 				}
 			}
 			else {
 				if(FilaMod == 0 && ColMod== 9) {
 					do {
-						if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+						if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 						else ok = false;
 						pos--;
-						ColMod++;
+						ColMod--;
 					}while(ok != false && pos > -1);
 					if(ok != false && ColMod <= TAB - 1) {
-						if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+						if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 						else ok = false;
 					}
 				}
 				else {
 					if(FilaMod == 9 && ColMod == 9) {
 						do {
-							if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+							if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 							else ok = false;
 							pos--;
-							ColMod++;
+							ColMod--;
 						}while(ok != false && pos > -1);
 						if(ok != false && ColMod <= TAB -1) {
-							if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+							if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 							else ok = false;
 						}
 					}
 					else {
 						if(FilaMod == 0) {
-							if(maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod + 1][ColMod - 1] != 'B') ok = true;
+							if(MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod + 1][ColMod - 1] != 'B') ok = true;
 							else ok = false;
 							if(ok != false) {
 								do {
-									if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+									if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 									else ok = false;
 									pos--;
 									ColMod++;
 								}while(ok != false && pos > -1);
 								if(ok != false && ColMod <= TAB - 1) {
-									if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+									if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 									else ok = false;
 								}
 							}
 						}
 						else {
 							if(FilaMod == 9) {
-								if(maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B') ok = true;
+								if(MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B') ok = true;
 								else ok = false;
 								if(ok != false) {
 									do {
-										if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+										if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 										else ok = false;
 										pos--;
 										ColMod++;
 									}while(ok != false && pos > -1);
 									if(ok != false && ColMod <= TAB - 1) {
-										if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+										if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 										else ok = false;
 									}
 								}
@@ -647,41 +645,41 @@ public class Comprovaciones {
 							else {
 								if(ColMod == 0) {
 									do {
-										if(maq1Secret[FilaMod][ColMod] == 'B' || maq1Secret[FilaMod - 1][ColMod] == 'B' || maq1Secret[FilaMod + 1][ColMod] == 'B') ok = false;
+										if(MatSecret[FilaMod][ColMod] == 'B' || MatSecret[FilaMod - 1][ColMod] == 'B' || MatSecret[FilaMod + 1][ColMod] == 'B') ok = false;
 										else ok = true;
 										pos--;
 										ColMod++;
 									}while(ok != false && pos > -1);//pos - 1
 									if(ok != false) {
-										if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+										if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 										else ok = false;
 									}
 								}
 								else {
 									if(ColMod == 9) {
-										if(maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B' && maq1Secret[FilaMod + 1][ColMod - 1] != 'B') ok = true;
+										if(MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B' && MatSecret[FilaMod + 1][ColMod - 1] != 'B') ok = true;
 										else ok = false;
 										if (ok != false) {
 											do {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 												else ok = false;
 												pos--;
-												ColMod++;
+												ColMod--;
 											}while(ok != false && pos > -1);
 										}
 									}
 									else {
-										if(maq1Secret[FilaMod][ColMod - 1] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B' && maq1Secret[FilaMod + 1][ColMod - 1] != 'B') ok = true;
+										if(MatSecret[FilaMod][ColMod - 1] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B' && MatSecret[FilaMod + 1][ColMod - 1] != 'B') ok = true;
 										else ok = false;
 										if(ok != false) {
 											do {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B') ok = true;
 												else ok = false;
 												pos--;
 												ColMod++;
 											}while(ok != false && pos > -1 && ColMod < TAB - 1);
 											if(ok != false) {
-												if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod + 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod] != 'B') ok = true;
+												if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod + 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod] != 'B') ok = true;
 												else ok = false;
 											}
 										}
@@ -696,81 +694,78 @@ public class Comprovaciones {
 		return ok;
 	}
 	/**
-	 * Method <b>comprobar</b>, comprova que el baixell cap al taulell.
-	 * @param fila Indica la fila on comença el baixell.
-	 * @param col Indica la columna on comença el baixell.
-	 * @param direccion Indica la direcció cap a on es direccionara el baixell.
+	 * Method <b>comprobar</b>, comprova que el vaixell cap al taulell.
+	 * @param fila Indica la fila on comença el vaixell.
+	 * @param col Indica la columna on comença el vaixell.
+	 * @param direccion Indica la direcció cap a on es direccionara el vaixell.
 	 * @param TAB Indica la alçada i la amplada del taulell.
-	 * @param pos Indica el numero de posicions que tindra el baixell
-	 * @param maq1Secret Conte el taulell on es grabaran els baixells.
+	 * @param pos Indica el numero de posicions que tindra el vaixell.
 	 * @return Retorna un boolean:
 	 * 	<ul>
-	 * 		<li>True: El baixell cap al taulell.</li>
-	 * 		<li>False: El baixell no cap al taulell</li>
+	 * 		<li>True: El vaixell cap al taulell.</li>
+	 * 		<li>False: El vaixell no cap al taulell</li>
 	 * 	</ul>
 	 */
-	public static boolean comprobar (int fila, int col, int direccion, int TAB, int pos, char[][] maq1Secret) {
+	public static boolean comprobar (int fila, int col, int direccion, int TAB, int pos) {
 		boolean ok = false;
-		//System.out.println("Fila " + fila + " col " + col + " direccon " + direccion + " ok " + ok);
 		switch (direccion) {
-		case 0: //derecha 0-9
+		case 0: //dreta 0-9 columna
 			if (col + pos < TAB) ok = true;
 			else ok = false;
 			break;
-		case 1: //izquierda 9-0
+		case 1: //esquerra 9-0 columna
 			if (col - pos >= 0) ok = true;
 			else ok = false;
 			break;
-		case 2: //abajo 0 - 9
+		case 2: //abaix 0-9 fila
 			if (fila + pos < TAB) ok = true;
 			else ok = false;
 			break;
-		case 3: //arriba 9 - 0
+		case 3: //adalt 9-0 fila
 			if (fila - pos >= 0) ok = true;
 			else ok = false;
 			break;
 			default: ok = false;
 		}
-		//System.out.println("Fila " + fila + " col " + col + " direccon " + direccion + " ok " + ok);
 		return ok;
 	}
 	/**
-	 * Method <b>posicionarBarco</b>, indica on comença els baixells, la direccio i crida als methods de comprovacio dels methods BarcosDireccion0 i BarcosDireccion3.
-	 * @param fila Indica la fila on comença el baixell.
-	 * @param col Indica la columna on comença el baixell.
-	 * @param direccion Indica la direcció del baixell.
-	 * @param TAB Indica la alçada i la amplada del baixell.
-	 * @param pos Indica quantes posicions tindra el baixell.
-	 * @param maq1Secret Conte el taulell secret, on s'escriuran els baixells.
+	 * Method <b>posicionarBarco</b>, indica on comença els vaixells, la direcció i crida als methods de comprovació dels methods BarcosDireccion0 i BarcosDireccion3.<br />
+	 * La posicionació dels vaixells consisteix en comprovar que no hi ha vaixells proxims a aquest, els vaixells és posicionen de esquerra a dreta i de adalt (0-9) a abaix (9-0).
+	 * @param fila Indica la fila on comença el vaixell.
+	 * @param col Indica la columna on comença el vaixell.
+	 * @param direccion Indica la direcció del vaixell.
+	 * @param TAB Indica la alçada i la amplada del vaixell.
+	 * @param pos Indica quantes posicions tindra el vaixell.
+	 * @param MatSecret Conte el taulell secret, on s'escriuran els vaixells.
 	 * @return Retorna un boolean:
 	 * 	<ul>
-	 * 		<li>Ture: S'ha escrit el baixell al taulell.</li>
-	 * 		<li>False: No s'ha esccrit el baixell al taulell.</li>
+	 * 		<li>Ture: S'ha escrit el vaixell al taulell.</li>
+	 * 		<li>False: No s'ha esccrit el vaixell al taulell.</li>
 	 * 	</ul>
 	 */
-	public static boolean posicionarBarco(int fila, int col, int direccion, int TAB, int pos, char[][] maq1Secret) {
+	public static boolean posicionarBarco(int fila, int col, int direccion, int TAB, int pos, char[][] MatSecret) {
 		boolean ok = false;
 		int FilaMod = 0;
 		int ColMod = 0;
 		int direccion1 = 0;
-		//la posicionacion de los barcos consiste en comprovar que no hay barcos proximos a este, los barcos se posicionan de izquierda a derecha i de arriba(0-9) a abajo (9-0).
 		switch(direccion) {
-		case 0: //derecha
+		case 0: //dreta
 			FilaMod = fila;
 			ColMod = col;
 			direccion1 = 0;
 			break;
-		case 1: //izquierda
+		case 1: //esquerra
 			FilaMod = fila;
 			ColMod = col - pos;
 			direccion1 = 0;
 			break;
-		case 2: //arriba 9 - 0
+		case 2: //adalt 9 - 0
 			FilaMod = fila; // - pos
 			ColMod = col;
 			direccion1 = 3;
 			break;
-		case 3: //Abajo 0 - 9
+		case 3: //abaix 0 - 9
 			FilaMod = fila - pos;
 			ColMod = col;
 			direccion1 = 3;
@@ -778,10 +773,10 @@ public class Comprovaciones {
 			default: ok = false;
 		}
 		
-		if(direccion1 == 0) ok = BarcosDireccion0(FilaMod, ColMod, pos, TAB, maq1Secret); //reescrivir
-		else ok = BarcosDireccion3(FilaMod, ColMod, pos, TAB, maq1Secret); //reescrivir
+		if(direccion1 == 0) ok = BarcosDireccion0(FilaMod, ColMod, pos, TAB, MatSecret); 
+		else ok = BarcosDireccion3(FilaMod, ColMod, pos, TAB, MatSecret);
 		
-		if(ok != false) IniMatrizes.escribirMatriz(FilaMod, ColMod, pos, maq1Secret, direccion1); //reescrivir
+		if(ok != false) IniMatrizes.escribirMatriz(FilaMod, ColMod, pos, MatSecret, direccion1); 
 		
 		return ok;
 	}

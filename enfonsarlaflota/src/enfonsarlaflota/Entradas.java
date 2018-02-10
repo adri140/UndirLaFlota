@@ -4,8 +4,8 @@ import java.util.Random;
 /**
  * <h2>Clase Entradas, conte tots els method que permeten i gestionen la entrada de dades al programa per teclat</h2>
  * @author Adrian Recio Marín
- * @version 1.0.A
- * @since 6/2/2018
+ * @version Console-2
+ * @since 10/02/2018
  */
 public class Entradas {
 	/**
@@ -13,11 +13,11 @@ public class Entradas {
 	 */
 	final static Scanner reader = new Scanner (System.in);
 	/**
-	 * Atribut rnd que permet la generacio aleatoria de numeros enters.
+	 * Atribut rnd que permet la generació aleatoria de numeros enters.
 	 */
 	final static Random rnd = new Random();
 	/**
-	 * Method <b>genRandom</b>, permet la generacio aleatoria de numeros enters de 0 a la mida del taulell - 1.
+	 * Method <b>genRandom</b>, permet la generació aleatoria de numeros enters de 0 a la mida del taulell - 1.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @return Retorna un numero enter.
 	 */

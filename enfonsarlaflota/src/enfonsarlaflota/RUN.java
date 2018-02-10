@@ -1,10 +1,10 @@
 package enfonsarlaflota;
 
 /**
- * <h2>Clase RUN, és la classe principal, ejecuta el programa.</h2>
+ * <h2>Clase RUN, és la classe principal, executa el programa.</h2>
  * @author Adrian Recio Marín
- * @version 1.0.A
- * @since 6/2/2018
+ * @version Console-2
+ * @since 10/02/2018
  */
 public class RUN {
 	public static void main(String[] args) {
@@ -16,6 +16,6 @@ public class RUN {
 			Joc.joc();
 			resp = Entradas.charUser("del joc: ");
 		}while(resp != 's' && resp != 'S');
-		System.out.println("Gracies per jugar.");
+		System.out.println("Gràcies per jugar.");
 	}
 }

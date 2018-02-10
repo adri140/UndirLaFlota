@@ -1,19 +1,19 @@
 package enfonsarlaflota;
 /**
  * <h2>Clase Tiradas, agrupa les dades introduides per l'usuari i la maquina.</h2>
- * Basicament crida a les funcions de entrada de dades i despres envia aquestes dades a els methods que realitzen els canvis als taulells. 
+ * Basicament crida als Methods de entrada de dades i despres envia aquestes dades a els methods que realitzen els canvis als taulells. 
  * @author Adrian Recio Marín
- * @version 1.0.A
- * @since 6/2/2018
+ * @version Console-2
+ * @since 10/02/2018
  */
 public class Tiradas {
 	/**
 	 * Method <b>MaqARM</b>, emmagatzema les dades generades per la maquina per realitzar la tirada sobre el taulell de l'usuari. 
-	 * @param jug1Sol Taulell de l'usuari, no conte la solucio.
-	 * @param jug1Secret Taulell de l'usuari, oculta la solucio.
-	 * @param TAB
-	 * @param Player
-	 * @param memoria
+	 * @param jug1Sol Taulell de l'usuari, no conte la solució.
+	 * @param jug1Secret Taulell de l'usuari, oculta la solució.
+	 * @param TAB Indica alçada i la amplada del taulell
+	 * @param Player Indica el Jugador.
+	 * @param memoria Memória de la maquina.
 	 * @return Torna un boolean.
 	 * 		<ul>	
 	 * 			<li>True: Indica que la partida ha terminat.</li>
@@ -21,8 +21,8 @@ public class Tiradas {
 	 * 		</ul>
 	 */
 	public static boolean MaqARM(char[][] jug1Sol, char[][] jug1Secret, int TAB, int Player, int[] memoria) {
-		boolean ok; //indica si no ha disparat habans a aquesta posicio
-		boolean ok2; //indica si ha tocat o undit algun baixell i si ha guanyat.
+		boolean ok; //indica si no ha disparat habans a aquesta posició
+		boolean ok2; //indica si ha tocat o undit algun vaixell i si ha guanyat.
 		boolean torna ; //indica si torna a tirar o no
 		int fila = 0; 
 		int col = 0;
@@ -37,9 +37,9 @@ public class Tiradas {
 				do {
 					fila = memoria[0];
 					col = memoria[1];
-					buscar = IA.genSearch(fila, col); //genera la direccion hacia donde buscar en funcion de su posicion
-					if(buscar == 0 || buscar == 1) col = IA.col(buscar, col); //devuelve la columna donde dispara
-					else fila = IA.fila(buscar, fila); //devuelve la fila donde va a disparar
+					buscar = IA.IAgenSearch(fila, col); //genera la direcció cap a on buscar en funció de la seva posició
+					if(buscar == 0 || buscar == 1) col = IA.IAcol(buscar, col); //retorna la columna on disparara
+					else fila = IA.IAfila(buscar, fila); //retorna la fila on disparara
 					if((fila >= 0 && fila <= 9) && (col >= 0 && col <= 9)) {
 						if(jug1Sol[fila][col] == '?') ok = true;
 						else ok = false;
@@ -73,10 +73,10 @@ public class Tiradas {
 	}
 	/**
 	 * Method <b>PlayerARM</b>, basicament gestiona la tirada del jugador.
-	 * @param maq1Sol Taulell de la maquina, no conte la solucio.
-	 * @param maq1Secret Taulell de la maquina, oculta la solucio
+	 * @param maq1Sol Taulell de la maquina, no conte la solució.
+	 * @param maq1Secret Taulell de la maquina, oculta la solució
 	 * @param TAB Indica la alçada i la amplada del taulell
-	 * @param Player
+	 * @param Player Indica el jugador.
 	 * @return Torna un boolean.
 	 * 		<ul>	
 	 * 			<li>True: Indica que la partida ha terminat.</li>
