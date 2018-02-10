@@ -60,13 +60,8 @@ public class Joc {
 			Player = (Player % 2) + 1;
 			switch (Player) {
 			case 1:
-				//System.out.println("Maquina Sol: ");
-				//Salidas.mostrar(maq1Sol, TAB); //m1Sol
-				System.out.println("Jugador Sol: ");
+				System.out.println("Taulell del Jugador: ");
 				Salidas.mostrar(jug1Sol, TAB); //m1Sol*/
-				//System.out.println("Maq Sec: ");
-				//Salidas.mostrar(maq1Secret, TAB); //m1Sol
-				
 				ok = Tiradas.PlayerARM(maq1Sol, maq1Secret, TAB, Player);
 				break;
 			case 2:
@@ -75,14 +70,14 @@ public class Joc {
 			}
 		}while(Player < 2 && ok != true);
 		if (ok != false) {
-			System.out.println("Guanya el jugador " + Player + ". ");
-			System.out.println("Jugador Sol: ");
+			System.out.println("Guanya el Jugador " + Player + ". ");
+			System.out.println("Taulell del Jugador: ");
 			Salidas.mostrar(jug1Sol, TAB);
-			System.out.println("Jugador Secret: ");
+			System.out.println("Taulell secret del Jugador: ");
 			Salidas.mostrar(jug1Secret, TAB);
-			System.out.println("Maq Sol: ");
+			System.out.println("Taulell de la Maquina: ");
 			Salidas.mostrar(maq1Sol, TAB);
-			System.out.println("Maq Secret: ");
+			System.out.println("Taulell secret de la Maquina: ");
 			Salidas.mostrar(maq1Secret, TAB);
 		}
 		

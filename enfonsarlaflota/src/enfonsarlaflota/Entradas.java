@@ -111,8 +111,9 @@ public class Entradas {
 		int resp;
 		boolean ok = false;
 		do {
-			resp = inpInt("Introdueix la Columna: (0-9)");	
+			resp = inpInt("Introdueix la Columna:");	
 			if (resp >= 0 && resp <= TAB - 1) ok = true;
+			else System.out.println("Aquesta columna no existeix");
 		}while (ok != true);
 		return resp;
 	}
@@ -128,6 +129,7 @@ public class Entradas {
 		do {
 			resp = inpCharFil("Introdueix la lletra de la Fila: ");
 			if ((resp >= 'A' && resp <= 'J') || (resp >= 'a' && resp <= 'j')) ok = true;
+			else System.out.println("Aquesta fila no existeix.");
 		}while(ok != true);
 		switch (resp) {
 		case 'A':

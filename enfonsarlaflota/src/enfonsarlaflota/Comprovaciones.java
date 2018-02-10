@@ -11,8 +11,8 @@ public class Comprovaciones {
 	 * Method <b>comprovarTirada</b>, comprova si el baixell esta tocat o undit, i mostra per consola el resultat.
 	 * @param fila Indica la fila on esta situat el baixell.
 	 * @param col Indica la columna on esta situat el baixell.
-	 * @param maq1Sol És el taulell que es mostra a tot el mon.
-	 * @param maq1Secret És el taulell que conte la solucio secreta.
+	 * @param MatSol És el taulell que es mostra a tot el mon.
+	 * @param MatSecret És el taulell que conte la solucio secreta.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @param Player Indica el jugador.
 	 * @return Retorna un boolean:
@@ -21,140 +21,140 @@ public class Comprovaciones {
 	 * 		<li>False: Baixell Tocat.</li>
 	 * 	</ul>
 	 */
-	public static boolean comprovarTirada(int fila, int col, char[][] maq1Sol, char[][] maq1Secret, int TAB, int Player) {
+	public static boolean comprovarTirada(int fila, int col, char[][] MatSol, char[][] MatSecret, int TAB, int Player) {
 		int i = 1;
 		boolean ok = true;
 		//comprovar si esta undit:
 		if(fila == 0 && col == 0) {
-			if(maq1Secret[fila][col + 1] == 'B') {
-				while(ok != false && maq1Secret[fila][col + i] != 'A' && col + i < TAB - 1) {
-					if(maq1Secret[fila][col + i] == maq1Sol[fila][col + i]) i++;
+			if(MatSecret[fila][col + 1] == 'B') {
+				while(ok != false && MatSecret[fila][col + i] != 'A' && col + i < TAB - 1) {
+					if(MatSecret[fila][col + i] == MatSol[fila][col + i]) i++;
 					else ok = false;
 				}
-				if(ok != false && maq1Secret[fila][col + i] != 'A') {
-					if(maq1Secret[fila][col + i] == maq1Sol[fila][col + i]) ok = true;
+				if(ok != false && MatSecret[fila][col + i] != 'A') {
+					if(MatSecret[fila][col + i] == MatSol[fila][col + i]) ok = true;
 					else ok = false;
 				}
 			}
 			else {
-				while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-					if(maq1Secret[fila + 1][col] == maq1Sol[fila + i][col]) i++;
+				while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+					if(MatSecret[fila + 1][col] == MatSol[fila + i][col]) i++;
 					else ok = false;
 				}
-				if(ok != false && maq1Secret[fila + i][col] != 'A') {
-					if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+				if(ok != false && MatSecret[fila + i][col] != 'A') {
+					if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 					else ok = false;
 				}
 			}
 		}
 		else {
 			if(fila == 0 && col == 9) {
-				if(maq1Secret[fila][col - 1] == 'B') {
-					while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-						if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+				if(MatSecret[fila][col - 1] == 'B') {
+					while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+						if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 						else ok = false;
 					}
-					if(ok != false && maq1Secret[fila][col - i] != 'A') {
-						if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+					if(ok != false && MatSecret[fila][col - i] != 'A') {
+						if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 						else ok = false;
 					}
 				}
 				else {
-					while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-						if(maq1Secret[fila + 1][col] == maq1Sol[fila + i][col]) i++;
+					while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+						if(MatSecret[fila + 1][col] == MatSol[fila + i][col]) i++;
 						else ok = false;
 					}
-					if (ok != false && maq1Secret[fila + i][col] != 'A') {
-							if(maq1Secret[fila + 1][col] == maq1Sol[fila + i][col]) ok = true;
+					if (ok != false && MatSecret[fila + i][col] != 'A') {
+							if(MatSecret[fila + 1][col] == MatSol[fila + i][col]) ok = true;
 							else ok = false;
 					}
 				}
 			}
 			else {
 				if(fila == 9 && col == 0) {
-					if(maq1Secret[fila - 1][col] == 'B') {
-						while(ok != false && maq1Secret[fila - i][col] != 'A' && fila - i > 0) {
-							if(maq1Secret[fila - 1][col] == maq1Sol[fila - i][col]) i++;
+					if(MatSecret[fila - 1][col] == 'B') {
+						while(ok != false && MatSecret[fila - i][col] != 'A' && fila - i > 0) {
+							if(MatSecret[fila - 1][col] == MatSol[fila - i][col]) i++;
 							else ok = false;
 						}
-						if(ok != false && maq1Secret[fila - i][col] != 'A') {
-							if(maq1Secret[fila - 1][col] == maq1Sol[fila - i][col]) ok = true;
+						if(ok != false && MatSecret[fila - i][col] != 'A') {
+							if(MatSecret[fila - 1][col] == MatSol[fila - i][col]) ok = true;
 							else ok = false;
 						}
 					}
 					else {
-						while(ok != false && maq1Secret[fila][col + i] != 'A' && col + i < TAB - 1) {
-							if(maq1Secret[fila][col + i] == maq1Sol[fila][col + i]) i++;
+						while(ok != false && MatSecret[fila][col + i] != 'A' && col + i < TAB - 1) {
+							if(MatSecret[fila][col + i] == MatSol[fila][col + i]) i++;
 							else ok = false;
 						}
-						if(ok != false && maq1Secret[fila][col + i] != 'A') {
-							if(maq1Secret[fila][col + i] == maq1Sol[fila][col + i]) ok = true;
+						if(ok != false && MatSecret[fila][col + i] != 'A') {
+							if(MatSecret[fila][col + i] == MatSol[fila][col + i]) ok = true;
 							else ok = false;
 						}
 					}
 				}
 				else {
 					if(fila == 9 && col == 9) {
-						if(maq1Secret[fila - 1][col] == 'B') {
-							while(ok != false && maq1Secret[fila - i][col] != 'A' && fila - i > 0) {
-								if(maq1Secret[fila - 1][col] == maq1Sol[fila - i][col]) i++;
+						if(MatSecret[fila - 1][col] == 'B') {
+							while(ok != false && MatSecret[fila - i][col] != 'A' && fila - i > 0) {
+								if(MatSecret[fila - 1][col] == MatSol[fila - i][col]) i++;
 								else ok = false;
 							}
-							if(ok != false && maq1Secret[fila - i][col] != 'A') {
-								if(maq1Secret[fila - 1][col] == maq1Sol[fila - i][col]) ok = true;
+							if(ok != false && MatSecret[fila - i][col] != 'A') {
+								if(MatSecret[fila - 1][col] == MatSol[fila - i][col]) ok = true;
 								else ok = false;
 							}
 						}
 						else {
-							while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-								if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+							while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+								if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 								else ok = false;
 							}
-							if(ok != false && maq1Secret[fila][col - i] != 'A') {
-								if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+							if(ok != false && MatSecret[fila][col - i] != 'A') {
+								if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 								else ok = false;
 							}
 						}
 					}
 					else {
 						if(fila == 0) {
-							if(maq1Secret[fila][col + 1] == 'B') {
+							if(MatSecret[fila][col + 1] == 'B') {
 								while(col + i < TAB && ok != false) { //TAB - 1
-									if(maq1Secret[fila][col + i] != 'A') i++;
+									if(MatSecret[fila][col + i] != 'A') i++;
 									else ok = false;
 								}
 								if(i > 9) i--; //esto no estaba pruebas????
 								col = col + i;
 								i = 1;
 								ok = true;
-								while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-									if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+								while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+									if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 									else ok = false;
 								}
-								if(ok != false && maq1Secret[fila][col - i] != 'A') {
-									if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+								if(ok != false && MatSecret[fila][col - i] != 'A') {
+									if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 									else ok = false;
 								}
 							}
 							else {
-								if(maq1Secret[fila][col - 1] == 'B') {
-									while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-										if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+								if(MatSecret[fila][col - 1] == 'B') {
+									while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+										if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 										else ok = false;
 									}
-									if(ok != false && maq1Secret[fila][col - i] != 'A') {
-										if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+									if(ok != false && MatSecret[fila][col - i] != 'A') {
+										if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 										else ok = false;
 									}
 								}
 								else {
 									//para abajo
-									while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-										if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+									while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+										if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 										else ok = false;
 									}
-									if(ok != false && maq1Secret[fila + i][col] != 'A') {
-										if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+									if(ok != false && MatSecret[fila + i][col] != 'A') {
+										if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 										else ok = false;
 									}
 								}
@@ -162,41 +162,41 @@ public class Comprovaciones {
 						}
 						else {
 							if(fila == 9) {
-								if(maq1Secret[fila][col + 1] == 'B') {
+								if(MatSecret[fila][col + 1] == 'B') {
 									while(col + i < TAB && ok != false) { //TAB -1
-										if(maq1Secret[fila][col + i] != 'A') i++;
+										if(MatSecret[fila][col + i] != 'A') i++;
 										else ok = false;
 									}
 									col = col + i;
 									i = 1;
 									ok = true;
-									while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-										if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+									while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+										if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 										else ok = false;
 									}
-									if(ok != false && maq1Secret[fila][col - i] != 'A') {
-										if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+									if(ok != false && MatSecret[fila][col - i] != 'A') {
+										if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 										else ok = false;
 									}
 								}
 								else {
-									if(maq1Secret[fila][col - 1] == 'B') {
-										while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) { //0
-											if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+									if(MatSecret[fila][col - 1] == 'B') {
+										while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) { //0
+											if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 											else ok = false;
 										}
-										if(ok != false && maq1Secret[fila][col - i] != 'A') {
-											if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+										if(ok != false && MatSecret[fila][col - i] != 'A') {
+											if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 											else ok = false;
 										}
 									}
 									else {
-										while(ok != false && maq1Secret[fila - i][col] != 'A' && fila - i > 0) {
-											if(maq1Secret[fila - i][col] == maq1Sol[fila - i][col]) i++;
+										while(ok != false && MatSecret[fila - i][col] != 'A' && fila - i > 0) {
+											if(MatSecret[fila - i][col] == MatSol[fila - i][col]) i++;
 											else ok = false;
 										}
-										if(ok != false && maq1Secret[fila - i][col] != 'A') {
-											if(maq1Secret[fila - i][col] == maq1Sol[fila - i][col]) ok = true;
+										if(ok != false && MatSecret[fila - i][col] != 'A') {
+											if(MatSecret[fila - i][col] == MatSol[fila - i][col]) ok = true;
 											else ok = false;
 										}
 									}
@@ -204,41 +204,41 @@ public class Comprovaciones {
 							}
 							else {
 								if (col == 0) {
-									if(maq1Secret[fila - 1][col] == 'B') {
+									if(MatSecret[fila - 1][col] == 'B') {
 										while(ok != false && fila - i > -1) { //0
-											if(maq1Secret[fila - i][col] == 'B') i++;
+											if(MatSecret[fila - i][col] == 'B') i++;
 											else ok = false;
 										}
 										fila = fila - i;
 										i = 1;
 										ok = true;
-										while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-											if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+										while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+											if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 											else ok = false;
 										}
-										if(ok != true && maq1Secret[fila + i][col] != 'A') {
-											if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+										if(ok != true && MatSecret[fila + i][col] != 'A') {
+											if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 											else ok = false;
 										}
 									}
 									else {
-										if(maq1Secret[fila + 1][col] == 'B') {
-											while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-												if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+										if(MatSecret[fila + 1][col] == 'B') {
+											while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+												if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 												else ok = false;
 											}
-											if(ok != false && maq1Secret[fila + i][col] != 'A') {
-												if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+											if(ok != false && MatSecret[fila + i][col] != 'A') {
+												if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 												else ok = false;
 											}
 										}
 										else {
-											while(ok != false && maq1Secret[fila][col + i] != 'A' && col + i < TAB - 1) {
-												if(maq1Secret[fila][col + i] == maq1Sol[fila][col + i]) i++;
+											while(ok != false && MatSecret[fila][col + i] != 'A' && col + i < TAB - 1) {
+												if(MatSecret[fila][col + i] == MatSol[fila][col + i]) i++;
 												else ok = false;
 											}
-											if(ok != false && maq1Secret[fila][col + i] != 'A') {
-												if(maq1Secret[fila][col + i] == maq1Sol[fila][col + i]) ok = true;
+											if(ok != false && MatSecret[fila][col + i] != 'A') {
+												if(MatSecret[fila][col + i] == MatSol[fila][col + i]) ok = true;
 												else ok = false;
 											}
 										}
@@ -246,100 +246,100 @@ public class Comprovaciones {
 								}
 								else {
 									if(col == 9) {
-										if(maq1Secret[fila - 1][col] == 'B') {
+										if(MatSecret[fila - 1][col] == 'B') {
 											while(ok != false && fila - i > -1) { //0
-												if(maq1Secret[fila - i][col] == 'B') i++;
+												if(MatSecret[fila - i][col] == 'B') i++;
 												else ok = false;
 											}
 											fila = fila - i;
 											i = 1;
 											ok = true;
-											while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-												if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+											while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+												if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 												else ok = false;
 											}
-											if (ok != false && maq1Secret[fila + i][col] != 'A') {
-												if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+											if (ok != false && MatSecret[fila + i][col] != 'A') {
+												if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 												else ok = false;
 											}
 										}
 										else {
-											if(maq1Secret[fila + 1][col] == 'B') {
-												while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB -1) {
-													if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+											if(MatSecret[fila + 1][col] == 'B') {
+												while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB -1) {
+													if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 													else ok = false;
 												}
-												if (ok != false && maq1Secret[fila + i][col] != 'A') {
-													if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+												if (ok != false && MatSecret[fila + i][col] != 'A') {
+													if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 													else ok = false;
 												}
 											}
 											else {
-												while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-													if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+												while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+													if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 													else ok = false;
 												}
-												if (ok != false && maq1Secret[fila][col - i] != 'A') {
-													if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+												if (ok != false && MatSecret[fila][col - i] != 'A') {
+													if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 													else ok = false;
 												}
 											}
 										}
 									}
 									else {
-										if(maq1Secret[fila][col + 1] == 'B') {
+										if(MatSecret[fila][col + 1] == 'B') {
 											while(col + i < TAB && ok != false) { //TAB -1
-												if(maq1Secret[fila][col + i] != 'A') i++;
+												if(MatSecret[fila][col + i] != 'A') i++;
 												else ok = false;
 											}
 											col = col + i;
 											i = 1;
 											ok = true;
-											while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) {
-												if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+											while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) {
+												if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 												else ok = false;
 											}
-											if (ok != false && maq1Secret[fila][col - i] != 'A') {
-												if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+											if (ok != false && MatSecret[fila][col - i] != 'A') {
+												if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 												else ok = false;
 											}
 										}
 										else {
-											if(maq1Secret[fila][col - 1] == 'B') {
-												while(ok != false && maq1Secret[fila][col - i] != 'A' && col - i > 0) { // 0
-													if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) i++;
+											if(MatSecret[fila][col - 1] == 'B') {
+												while(ok != false && MatSecret[fila][col - i] != 'A' && col - i > 0) { // 0
+													if(MatSecret[fila][col - i] == MatSol[fila][col - i]) i++;
 													else ok = false;
 												}
-												if(ok != false && maq1Secret[fila][col - i] != 'A') {
-													if(maq1Secret[fila][col - i] == maq1Sol[fila][col - i]) ok = true;
+												if(ok != false && MatSecret[fila][col - i] != 'A') {
+													if(MatSecret[fila][col - i] == MatSol[fila][col - i]) ok = true;
 													else ok = false;
 												}
 											}
 											else {
-												if(maq1Secret[fila - 1][col] == 'B') {
+												if(MatSecret[fila - 1][col] == 'B') {
 													while(ok != false && fila - i > -1) { // 0
-														if(maq1Secret[fila - i][col] == 'B') i++;
+														if(MatSecret[fila - i][col] == 'B') i++;
 														else ok = false;
 													}
 													fila = fila - i;
 													i = 1;
 													ok = true;
-													while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) {
-														if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+													while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) {
+														if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 														else ok = false;
 													}
-													if (ok != false && maq1Secret[fila + i][col] != 'A') {
-														if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+													if (ok != false && MatSecret[fila + i][col] != 'A') {
+														if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 														else ok = false;
 													}
 												}
 												else {
-													while(ok != false && maq1Secret[fila + i][col] != 'A' && fila + i < TAB - 1) { // -1
-														if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) i++;
+													while(ok != false && MatSecret[fila + i][col] != 'A' && fila + i < TAB - 1) { // -1
+														if(MatSecret[fila + i][col] == MatSol[fila + i][col]) i++;
 														else ok = false;
 													}
-													if (ok != false && maq1Secret[fila + i][col] != 'A') {
-														if(maq1Secret[fila + i][col] == maq1Sol[fila + i][col]) ok = true;
+													if (ok != false && MatSecret[fila + i][col] != 'A') {
+														if(MatSecret[fila + i][col] == MatSol[fila + i][col]) ok = true;
 														else ok = false;	
 													}
 												}
@@ -403,28 +403,28 @@ public class Comprovaciones {
 	 * 		<li>False: El baixell no es pot ubicar a aquesta posició.</li>
 	 * 	</ul>
 	 */
-	public static boolean BarcosDireccion3(int FilaMod, int ColMod, int pos, int TAB, char[][] maq1Secret) {
+	public static boolean BarcosDireccion3(int FilaMod, int ColMod, int pos, int TAB, char[][] MatSecret) {
 		boolean ok = false; //desplacamiento hacia el 9 de 0 a 9
 		
 		if(FilaMod == 0 && ColMod == 0) {
 			do {
-				if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
+				if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B') ok = true;
 				else ok = false;
 				FilaMod++;
 				pos--;
 			}while(ok != false && pos > -1);
 			if(ok != false) {
-				if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
+				if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B') ok = true;
 				else ok = false;
 			}
 		}
 		else {
 			if(FilaMod == 9 && ColMod == 0) {
-				if(maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
+				if(MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod + 1] != 'B') ok = true;
 				else ok = false;
 				if (ok != false) {
 					do {
-						if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B') ok = true;
+						if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B') ok = true;
 						else ok = false;
 						FilaMod++;
 						pos--;
@@ -434,23 +434,23 @@ public class Comprovaciones {
 			else {
 				if(FilaMod == 0 && ColMod == 9) {
 					do {
-						if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+						if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 						else ok = false;
 						FilaMod++;
 						pos--;
 					}while(ok != false && pos > -1);
 					if (ok != false) {
-						if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+						if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 						else ok = false;
 					}
 				}
 				else {
 					if(FilaMod == 9 && ColMod == 9) {
-						if(maq1Secret[FilaMod - 1][ColMod] != 'B' && maq1Secret[FilaMod - 1][ColMod - 1] != 'B') ok = true;
+						if(MatSecret[FilaMod - 1][ColMod] != 'B' && MatSecret[FilaMod - 1][ColMod - 1] != 'B') ok = true;
 						else ok = false;
 						if (ok != false) {
 							do {
-								if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+								if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod - 1] != 'B') ok = true;
 								else ok = false;
 								FilaMod++;
 								pos--;
@@ -460,13 +460,13 @@ public class Comprovaciones {
 					else {
 						if(FilaMod == 0) {
 							do {
-								if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+								if(MatSecret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
 								else ok = false;
 								FilaMod++;
 								pos--;
 							}while(ok != false && pos > -1);
 							if (ok != false) {
-								if(maq1Secret[FilaMod][ColMod] != 'B' && maq1Secret[FilaMod][ColMod + 1] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
+								if(maq1Secret[FilaMod][ColMod] != 'B' && MatSecret[FilaMod][ColMod + 1] != 'B' && maq1Secret[FilaMod][ColMod - 1] != 'B') ok = true;
 								else ok = false;
 							}
 						}

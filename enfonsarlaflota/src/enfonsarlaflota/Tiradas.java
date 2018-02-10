@@ -90,7 +90,7 @@ public class Tiradas {
 		boolean ok2;
 		boolean torna; //indica si torna a tirar o no
 		do {
-			System.out.println("Maquina Sol: ");
+			System.out.println("Taulell de la Maquina: ");
 			Salidas.mostrar(maq1Sol, TAB); //m1Sol
 			torna = false;
 			ok = false;
@@ -99,7 +99,7 @@ public class Tiradas {
 				filaUser = Entradas.inputFilaUser(TAB);
 				colUser = Entradas.inputColUser(TAB);
 				if (maq1Sol[filaUser][colUser] == '?') ok = true;
-				else System.out.println("Aquesta posició ja esta descuberta, tria una altre. ");
+				else System.out.println("Aquesta posició ja esta descoberta, tria una altre. ");
 			}while(ok != true);
 			maq1Sol[filaUser][colUser] = maq1Secret[filaUser][colUser];
 			if(maq1Sol[filaUser][colUser] == 'B') {
@@ -107,7 +107,7 @@ public class Tiradas {
 				torna = true;
 				if(ok2 != false) ok2 = Comprovaciones.comprovarTablero(maq1Sol, maq1Secret, TAB, Player);
 			}
-			else System.out.println("Aigua, pers el turn.");
+			else System.out.println("Aigua, pers el torn.");
 		}while(torna != false && ok2 != true);
 		return ok2;
 	}
