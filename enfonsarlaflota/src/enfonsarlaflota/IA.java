@@ -4,7 +4,7 @@ import java.util.Random;
  * <h2>Classe IA, conte la malloria de les funcions de la IA</h2>
  * @author Adrian Recio Marín
  * @version Cosole-2
- * @sinze 10/02/2018
+ * @since 10/02/2018
  */
 public class IA {
 	final static Random rnd = new Random();

@@ -43,8 +43,10 @@ public class Joc {
 	
 	/**
 	 * Method <b>Jugar</b> gestiona els torns dels jugadors, aixi com la crida als Methodas que permeten visualitzar els taulells i les tirades.
-	 * @param maq1Sol Taulell que pot veure tot el món.
-	 * @param maq1Secret Taulell que oculta la solució del joc, generat per la maquina.
+	 * @param jug1Sol Taulell del jugador que pot veure tot el món.
+	 * @param jug1Secret Taulell del jugador ocult, conte la solució.
+	 * @param maq1Sol Taulell de la maquina que pot veure tot el món.
+	 * @param maq1Secret Taulell de la maquina que oculta la solució del joc, generat per la maquina.
 	 * @param TAB Indica l'amplada i la alçada del taulell.
 	 * @param memoria Memória de la IA, pos 0 = fila, pos 1 = col.
 	 * @return Retorna un boolean:

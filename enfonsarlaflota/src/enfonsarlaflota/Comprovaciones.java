@@ -730,7 +730,7 @@ public class Comprovaciones {
 		return ok;
 	}
 	/**
-	 * Method <b>posicionarBarco</b>, indica on comença els vaixells, la direcció i crida als methods de comprovació dels methods BarcosDireccion0 i BarcosDireccion3.<br />
+	 * Method <b>posicionarBarco</b>, indica on comença els vaixells, la direcció i crida als methods de comprovació dels methods BarcosDireccion0 i BarcosDireccion3.
 	 * La posicionació dels vaixells consisteix en comprovar que no hi ha vaixells proxims a aquest, els vaixells és posicionen de esquerra a dreta i de adalt (0-9) a abaix (9-0).
 	 * @param fila Indica la fila on comença el vaixell.
 	 * @param col Indica la columna on comença el vaixell.
