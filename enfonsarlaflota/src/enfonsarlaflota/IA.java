@@ -137,4 +137,38 @@ public class IA {
 		else fila = fila - 1;
 		return fila;
 	}
+	/**
+	 * Method <b>ReCol</b>, busca la seguent part del baixell a enfonsar, partint de alguna part del mateix baixell ja descobert, horitzontalment.
+	 * @param mat
+	 * @param fila
+	 * @param col
+	 * @param buscar
+	 * @return Retorna el valor final de la columna.
+	 */
+	public static int ReCol(char[][] mat, int fila, int col, int buscar) {
+		if(buscar == 0) {
+			if(mat[fila][col] != '?' && col < 9) col = ReCol(mat, fila, (col + 1), buscar);
+		}
+		else {
+			if(mat[fila][col] != '?' && col > 0) col = ReCol(mat, fila, (col - 1), buscar);
+		}
+		return col;
+	}
+	/**
+	 * Method <b>ReFila</b>, busca la seguent part del baixell a enfonsar, partint de alguna part del mateix baixell ja descobert, verticalment.
+	 * @param mat
+	 * @param fila
+	 * @param col
+	 * @param buscar
+	 * @return Retorna el valor final de la fila.
+	 */
+	public static int ReFila(char[][] mat, int fila, int col, int buscar) {
+		if(buscar == 2) {
+			if(mat[fila][col] != '?' && fila < 9) fila = ReFila(mat, (fila + 1), col, buscar);
+		}
+		else {
+			if(mat[fila][col] != '?' && fila > 0) fila = ReFila(mat, (fila - 1), col, buscar);
+		}
+		return fila;
+	}
 }

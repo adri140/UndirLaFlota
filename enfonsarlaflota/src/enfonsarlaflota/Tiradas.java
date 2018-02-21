@@ -42,7 +42,18 @@ public class Tiradas {
 					else fila = IA.IAfila(buscar, fila); //retorna la fila on disparara
 					if((fila >= 0 && fila <= 9) && (col >= 0 && col <= 9)) {
 						if(jug1Sol[fila][col] == '?') ok = true;
-						else ok = false;
+						else {
+							if(jug1Sol[fila][col] == 'B') {
+								if(buscar == 0 || buscar == 1) {
+									col = IA.ReCol(jug1Sol, fila, col, buscar);
+								}
+								else {
+									fila = IA.ReFila(jug1Sol, fila, col, buscar);
+								}
+								ok = true;
+							}
+							else ok = false;
+						}
 					}
 					else ok = false;
 				}while (ok != true);
