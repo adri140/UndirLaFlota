@@ -139,10 +139,11 @@ public class IA {
 	}
 	/**
 	 * Method <b>ReCol</b>, busca la seguent part del baixell a enfonsar, partint de alguna part del mateix baixell ja descobert, horitzontalment.
-	 * @param mat
-	 * @param fila
-	 * @param col
-	 * @param buscar
+	 * @param mat Taulell sobre el que treballa.
+	 * @param fila Indica la fila on treballa.
+	 * @param col Indica la columna on treballa.
+	 * @param buscar Indica la posició cap a on buscara una celda buida/sense descobrir.
+	 * @param Tab Indica el tamany maxim del taulell.
 	 * @return Retorna el valor final de la columna.
 	 */
 	public static int ReCol(char[][] mat, int fila, int col, int buscar, int Tab) {
@@ -156,10 +157,11 @@ public class IA {
 	}
 	/**
 	 * Method <b>ReFila</b>, busca la seguent part del baixell a enfonsar, partint de alguna part del mateix baixell ja descobert, verticalment.
-	 * @param mat
-	 * @param fila
-	 * @param col
-	 * @param buscar
+	 * @param mat Taulell sobre el que treballa.
+	 * @param fila Indica la fila on treballa.
+	 * @param col Indica la columna on treballa.
+	 * @param buscar Indica la posició cap a on buscara una celda buida/sense descobrir.
+	 * @param Tab Indica el tamany maxim del taulell.
 	 * @return Retorna el valor final de la fila.
 	 */
 	public static int ReFila(char[][] mat, int fila, int col, int buscar, int Tab) {
