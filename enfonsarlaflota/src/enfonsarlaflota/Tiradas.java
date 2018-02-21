@@ -45,10 +45,10 @@ public class Tiradas {
 						else {
 							if(jug1Sol[fila][col] == 'B') {
 								if(buscar == 0 || buscar == 1) {
-									col = IA.ReCol(jug1Sol, fila, col, buscar);
+									col = IA.ReCol(jug1Sol, fila, col, buscar, TAB);
 								}
 								else {
-									fila = IA.ReFila(jug1Sol, fila, col, buscar);
+									fila = IA.ReFila(jug1Sol, fila, col, buscar, TAB);
 								}
 								ok = true;
 							}
