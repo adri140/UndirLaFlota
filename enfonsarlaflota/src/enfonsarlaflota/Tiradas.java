@@ -32,7 +32,6 @@ public class Tiradas {
 			torna = false;
 			ok = false;
 			ok2 = false;
-			
 			if (memoria[0] != 11 && memoria[1] != 11) {
 				do {
 					fila = memoria[0];
@@ -48,9 +47,12 @@ public class Tiradas {
 									col = IA.ReCol(jug1Sol, fila, col, buscar, TAB);
 								}
 								else {
+									TAB = 3;
+									buscar = 2;
 									fila = IA.ReFila(jug1Sol, fila, col, buscar, TAB);
 								}
 								ok = true;
+								
 							}
 							else ok = false;
 						}

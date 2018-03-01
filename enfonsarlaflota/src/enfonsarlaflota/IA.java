@@ -148,10 +148,10 @@ public class IA {
 	 */
 	public static int ReCol(char[][] mat, int fila, int col, int buscar, int Tab) {
 		if(buscar == 0) {
-			if(mat[fila][col] != '?' && col < Tab - 1) col = ReCol(mat, fila, (col + 1), buscar, Tab);
+			if((mat[fila][col] == 'A' || mat[fila][col] == '?') && col < Tab - 1) col = ReCol(mat, fila, (col + 1), buscar, Tab);
 		}
 		else {
-			if(mat[fila][col] != '?' && col > 0) col = ReCol(mat, fila, (col - 1), buscar, Tab);
+			if((mat[fila][col] == 'A' || mat[fila][col] == '?') && col > 0) col = ReCol(mat, fila, (col - 1), buscar, Tab);
 		}
 		return col;
 	}
@@ -166,10 +166,10 @@ public class IA {
 	 */
 	public static int ReFila(char[][] mat, int fila, int col, int buscar, int Tab) {
 		if(buscar == 2) {
-			if(mat[fila][col] != '?' && fila < Tab - 1) fila = ReFila(mat, (fila + 1), col, buscar, Tab);
+			if((mat[fila][col] == 'A' || mat[fila][col] == '?') && fila < Tab - 1) fila = ReFila(mat, (fila + 1), col, buscar, Tab);
 		}
 		else {
-			if(mat[fila][col] != '?' && fila > 0) fila = ReFila(mat, (fila - 1), col, buscar, Tab);
+			if((mat[fila][col] == 'A' || mat[fila][col] == '?') && fila > 0) fila = ReFila(mat, (fila - 1), col, buscar, Tab); //error
 		}
 		return fila;
 	}
