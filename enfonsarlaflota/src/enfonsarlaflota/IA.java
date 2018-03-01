@@ -63,7 +63,7 @@ public class IA {
 							break;
 								case 1: resposta = 1;
 							break;
-								case 2: resposta = 3;
+								case 2: resposta = 2; //error solved
 							break;
 							}
 						}
