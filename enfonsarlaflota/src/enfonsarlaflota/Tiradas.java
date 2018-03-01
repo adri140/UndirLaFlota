@@ -47,8 +47,6 @@ public class Tiradas {
 									col = IA.ReCol(jug1Sol, fila, col, buscar, TAB);
 								}
 								else {
-									TAB = 3;
-									buscar = 2;
 									fila = IA.ReFila(jug1Sol, fila, col, buscar, TAB);
 								}
 								ok = true;
