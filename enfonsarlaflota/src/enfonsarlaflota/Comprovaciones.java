@@ -357,6 +357,9 @@ public class Comprovaciones {
 			if (ok == true) System.out.println("Vaixell enfonsat, tornes a disparar.");
 			else System.out.println("Vaixell tocat, tornes a disparar.");
 		}
+		else {
+			if(ok == true) System.out.println("Vaixell aliat enfonsat.");
+		}
 		return ok;
 	}
 	/**

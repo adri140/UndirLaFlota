@@ -14,87 +14,47 @@ public class IniMatrizes {
 	 */
 	public static void inicializarMaqSecret(char[][] maq1Secret, int TAB, char carac) {
 		int fila, col, direccion;
-		int pos = 1; //indica el numero de posicions que tindra el vaixell - 1
-		int baixell = 0; //indica el vaixell
-		boolean ok;
+		int pos;//indica el numero de posicions que tindra el vaixell - 1
+		int numVaixell; //indica el numero de vaixells que ha de generar
+		int vaixell = 0; //indica el vaixell
+		boolean ok = false; //indica si el vaixell esta be posicionat
 		
 		inicializarSol(maq1Secret, TAB, 'A');
 		
-		pos = 3;
+		pos = 4;
+		numVaixell = 0;
 		do {
-		 	do{
-			ok = false;
-				do {
-					fila = Entradas.genRandom(TAB);
-					col = Entradas.genRandom(TAB);
-					direccion = Entradas.genRandom(4); //0 dreta, 1 esquerra, 2 cap a abaix, 3 cap a adalt
-					ok = Comprovaciones.comprobar(fila, col, direccion, TAB, pos);
+			pos--;
+			vaixell = 0;
+			numVaixell++;
+			do {
+			 	do{
+				ok = false;
+					do {
+						fila = Entradas.genRandom(TAB);
+						col = Entradas.genRandom(TAB);
+						if(pos > 0) direccion = Entradas.genRandom(4); //0 dreta, 1 esquerra, 2 cap a abaix, 3 cap a adalt
+						else direccion = 0;
+						ok = Comprovaciones.comprobar(fila, col, direccion, TAB, pos);
+					}while(ok != true);
+				ok = false;
+				ok = Comprovaciones.posicionarBarco(fila, col, direccion, TAB, pos, maq1Secret); 
 				}while(ok != true);
-			ok = false;
-			ok = Comprovaciones.posicionarBarco(fila, col, direccion, TAB, pos, maq1Secret); 
-			}while(ok != true);
-		
-		baixell++;
-		}while(baixell < 1);
-		
-		pos = 2;
-		baixell = 0;
-		do {
-		 	do{
-			ok = false;
-				do {
-					fila = Entradas.genRandom(TAB);
-					col = Entradas.genRandom(TAB);
-					direccion = Entradas.genRandom(4); //0 dreta, 1 esquerra, 2 cap a abaix, 3 cap a adalt
-					ok = Comprovaciones.comprobar(fila, col, direccion, TAB, pos);
-				}while(ok != true);
-			ok = false;
-			ok = Comprovaciones.posicionarBarco(fila, col, direccion, TAB, pos, maq1Secret); 
-			}while(ok != true);
-		
-		baixell++;
-		}while(baixell < 2);
-		
-		pos = 1;
-		baixell = 0;
-		do {
-		 	do{
-			ok = false;
-				do {
-					fila = Entradas.genRandom(TAB);
-					col = Entradas.genRandom(TAB);
-					direccion = Entradas.genRandom(4); //0 dreta, 1 esquerra, 2 cap a abaix, 3 cap a adalt
-					ok = Comprovaciones.comprobar(fila, col, direccion, TAB, pos);
-				}while(ok != true);
-			ok = false;
-			ok = Comprovaciones.posicionarBarco(fila, col, direccion, TAB, pos, maq1Secret);
-			}while(ok != true);
-		
-		baixell++;
-		}while(baixell < 3);
-		
-		pos = 0;
-		baixell = 0;
-		do {
-		 	do{
-			ok = false;
-				do {
-					fila = Entradas.genRandom(TAB);
-					col = Entradas.genRandom(TAB);
-					direccion = Entradas.genRandom(4); //0 dreta, 1 esquerra, 2 cap a abaix, 3 cap a adalt
-					ok = Comprovaciones.comprobar(fila, col, direccion, TAB, pos);
-				}while(ok != true);
-			ok = false;
-			ok = Comprovaciones.posicionarBarco(fila, col, direccion, TAB, pos, maq1Secret); 
-			}while(ok != true);
-		baixell++;
-		}while(baixell < 4); 
+			
+			vaixell++;
+			}while(vaixell < numVaixell);
+		}while(pos > 0);
 	}
-	
-	public static void inicializarSol(char[][] Solucion, int TAB, char carac) {
+	/**
+	 * Method <b>inicialitzarSol</b> inicialitza els taulells, grabant a ells el caracter indicat per parametre.
+	 * @param Mat Conte la matriu sobre la cual realitzara el treball.
+	 * @param TAB Indica la amplada i la alçada de la matriu.
+	 * @param carac Indica el caracter que grabara a tota la matriu.
+	 */
+	public static void inicializarSol(char[][] Mat, int TAB, char carac) {
 		for(int i = 0; i < TAB; i++) {
 			for(int p = 0; p < TAB; p++) {
-				Solucion[i][p] = carac;
+				Mat[i][p] = carac;
 			}
 		}
 	}
@@ -109,94 +69,36 @@ public class IniMatrizes {
 		int FilaInici, ColInici;
 		int pos; //indica de quants vaixells sera la posició
 		int direccion; //indica la direcció cap a on és generara el vaixell
-		int baixell; //indica quants vaixells a introduit per a cada tipus de vaixell
+		int numVaixell; //indica el numero de vaixell que ha de generar
+		int vaixell; //indica quants vaixells a introduit per a cada tipus de vaixell
 		boolean ok = false; //indica si el vaixell esta bé posicionat
 		
 		inicializarSol(jug1Secret, TAB, agua); //A de aigua
 		
-		pos = 3;
-		baixell = 0; //1 vaixell de 4 posicions.
+		pos = 4;
+		numVaixell = 0;
 		do {
+			vaixell = 0;
+			pos--;
+			numVaixell++;
 			do {
-			Salidas.mostrar(jug1Secret, TAB); 
 				do {
-					System.out.println("Introdueix les coordenades i les direccions dels vaixells de 4 posicions " + "(" + baixell + " / 1)" );
-					FilaInici = Entradas.inputFilaUser(TAB);
-					ColInici = Entradas.inputColUser(TAB);
-					direccion = Entradas.inputDirUser();
-					ok = Comprovaciones.comprobar(FilaInici, ColInici, direccion, TAB, pos);
-					if(ok != true)System.out.println("No es pot posar el baixell, el baixell sortiria del taulell.");
-				}while(ok != true);
-				ok = false;
-				ok = Comprovaciones.posicionarBarco(FilaInici, ColInici, direccion, TAB, pos, jug1Secret); 
-				if(ok != true) System.out.println("No es pot posar el baixell, toca o sobreposa un altre baixell.");
-			}while(ok != true);
-			baixell++;
-		}while(baixell != 1);
-		
-		pos = 2;
-		baixell = 0; //2 vaixell de 3 posicions.
-		do { 
-			ok = false;
-			do {
 				Salidas.mostrar(jug1Secret, TAB); 
-				do {
-					System.out.println("Introdueix les coordenades i les direccions dels vaixell de 3 posicions " + "(" + baixell + " / 2)" );
-					FilaInici = Entradas.inputFilaUser(TAB);
-					ColInici = Entradas.inputColUser(TAB);
-					direccion = Entradas.inputDirUser();
-					ok = Comprovaciones.comprobar(FilaInici, ColInici, direccion, TAB, pos);
-					if(ok != true)System.out.println("No es pot posar el baixell, el baixell sortiria del taulell.");
+					do {
+						System.out.println("Introdueix les coordenades i les direccions dels vaixells de " + (pos + 1) + " posicions " + "(" + vaixell + " / " + numVaixell +" )" );
+						FilaInici = Entradas.inputFilaUser(TAB);
+						ColInici = Entradas.inputColUser(TAB);
+						direccion = Entradas.inputDirUser();
+						ok = Comprovaciones.comprobar(FilaInici, ColInici, direccion, TAB, pos);
+						if(ok != true)System.out.println("No es pot posar el baixell, el baixell sortiria del taulell.");
+					}while(ok != true);
+					ok = false;
+					ok = Comprovaciones.posicionarBarco(FilaInici, ColInici, direccion, TAB, pos, jug1Secret); 
+					if(ok != true) System.out.println("No es pot posar el baixell, toca o sobreposa un altre baixell.");
 				}while(ok != true);
-				ok = false;
-				ok = Comprovaciones.posicionarBarco(FilaInici, ColInici, direccion, TAB, pos, jug1Secret); 
-				if(ok != true) System.out.println("No es pot posar el baixell, toca o sobreposa un altre baixell.");
-			}while(ok != true);
-			baixell++;
-		}while(baixell != 2);
-		
-		
-		pos = 1;
-		baixell = 0; //3 vaixell de 2 posicions.
-		do {
-			ok = false;
-			do {
-				Salidas.mostrar(jug1Secret, TAB); 
-				do {
-					System.out.println("Introdueix les coordenades i les direccions dels vaixells de 2 posicions " + "(" + baixell + " / 3)" );
-					FilaInici = Entradas.inputFilaUser(TAB);
-					ColInici = Entradas.inputColUser(TAB);
-					direccion = Entradas.inputDirUser();
-					ok = Comprovaciones.comprobar(FilaInici, ColInici, direccion, TAB, pos);
-					if(ok != true)System.out.println("No es pot posar el baixell, el baixell sortiria del taulell.");
-				}while(ok != true);
-				ok = false;
-				ok = Comprovaciones.posicionarBarco(FilaInici, ColInici, direccion, TAB, pos, jug1Secret); 
-				if(ok != true) System.out.println("No es pot posar el baixell, toca o sobreposa un altre baixell.");
-			}while(ok != true);
-			baixell++;
-		}while(baixell != 3);
-		
-		pos = 0;
-		baixell = 0; //4 vaixell de 1 posicions.
-		do {
-			ok = false;
-			do {
-				Salidas.mostrar(jug1Secret, TAB); 
-				do {
-					System.out.println("Introdueix les posicions dels vaixells d'1 posicions " + "(" + baixell + " / 4)" );
-					FilaInici = Entradas.inputFilaUser(TAB);
-					ColInici = Entradas.inputColUser(TAB);
-					direccion = 0;
-					ok = Comprovaciones.comprobar(FilaInici, ColInici, direccion, TAB, pos);
-					if(ok != true)System.out.println("No es pot posar el baixell, el baixell sortiria del taulell.");
-				}while(ok != true);
-				ok = false;
-				ok = Comprovaciones.posicionarBarco(FilaInici, ColInici, direccion, TAB, pos, jug1Secret); 
-				if(ok != true) System.out.println("No es pot posar el baixell, toca o sobreposa un altre baixell.");
-			}while(ok != true);
-			baixell++;
-		}while(baixell != 4);
+				vaixell++;
+			}while(vaixell < numVaixell);
+		}while(pos > 0);
 	}
 	/**
 	 * Method <b>escribirMatiz</b>, escriu a la matriu els vaixells.
