@@ -17,8 +17,8 @@ public class Comprovaciones {
 	 * @param Player Indica el jugador.
 	 * @return Retorna un boolean:
 	 * 	<ul>
-	 * 		<li>True: Baixell Undit.</li>
-	 * 		<li>False: Baixell Tocat.</li>
+	 * 		<li>True: Vaixell Undit.</li>
+	 * 		<li>False: Vaixell Tocat.</li>
 	 * 	</ul>
 	 */
 	public static boolean comprovarTirada(int fila, int col, char[][] MatSol, char[][] MatSecret, int TAB, int Player) {

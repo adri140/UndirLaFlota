@@ -82,7 +82,7 @@ public class Entradas {
 		return input;
 	}
 	/**
-	 * Method <b>inpCharFil</b> "input char Fila" permet la entrada de la fila per teclat.
+	 * Method <b>inpCharFil</b> permet la entrada de la fila per teclat.
 	 * @param output  String que mostrara habans de permetre la entrada de dades per teclat.
 	 * @return Retorna el caracter introduit per teclat.
 	 */
@@ -103,7 +103,7 @@ public class Entradas {
 		return input;
 	}
 	/**
-	 * Method <b>inpColUser</b> "Input Columna User", comprova que la entrada de les dades es coorecte.
+	 * Method <b>inpColUser</b> comprova que la entrada de les dades es coorecte.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @return Retorna un numero enter al Method que la cridat.
 	 */
@@ -118,7 +118,7 @@ public class Entradas {
 		return resp;
 	}
 	/**
-	 * Method <b>inputFilaUser</b> "Input Fila User", comprova que la entrada de les dades es coorecte.
+	 * Method <b>inputFilaUser</b> comprova que la entrada de les dades es coorecte.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @return Retorna un numero enter que indica la fila del taulell escollida per l'usuari.
 	 */
@@ -176,8 +176,8 @@ public class Entradas {
 		return num;
 	}
 	/**
-	 * Method <b>inputDirUser</b> "Input Direction User", comprova que la entrada de dades es coorecte.
-	 * @return Retorna un numero enter que indica la direcció cap a on s'orientara el baixell.
+	 * Method <b>inputDirUser</b> comprova que la entrada de dades es coorecte.
+	 * @return Retorna un numero enter que indica la direcció cap a on s'orientara el vaixell.
 	 */
 	public static int inputDirUser() {
 		boolean ok = false;

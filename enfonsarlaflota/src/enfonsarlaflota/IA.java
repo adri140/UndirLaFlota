@@ -138,7 +138,7 @@ public class IA {
 		return fila;
 	}
 	/**
-	 * Method <b>ReCol</b>, busca la seguent part del baixell a enfonsar, partint de alguna part del mateix baixell ja descobert, horitzontalment.
+	 * Method <b>ReCol</b>, busca la seguent part del vaixell a enfonsar, partint de alguna part del mateix vaixell ja descobert, horitzontalment.
 	 * @param mat Taulell sobre el que treballa.
 	 * @param fila Indica la fila on treballa.
 	 * @param col Indica la columna on treballa.
@@ -156,7 +156,7 @@ public class IA {
 		return col;
 	}
 	/**
-	 * Method <b>ReFila</b>, busca la seguent part del baixell a enfonsar, partint de alguna part del mateix baixell ja descobert, verticalment.
+	 * Method <b>ReFila</b>, busca la seguent part del vaixell a enfonsar, partint de alguna part del mateix vaixell ja descobert, verticalment.
 	 * @param mat Taulell sobre el que treballa.
 	 * @param fila Indica la fila on treballa.
 	 * @param col Indica la columna on treballa.
