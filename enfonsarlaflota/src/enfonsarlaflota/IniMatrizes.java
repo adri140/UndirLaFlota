@@ -88,7 +88,8 @@ public class IniMatrizes {
 						System.out.println("Introdueix les coordenades i les direccions dels vaixells de " + (pos + 1) + " posicions " + "(" + vaixell + " / " + numVaixell +" )" );
 						FilaInici = Entradas.inputFilaUser(TAB);
 						ColInici = Entradas.inputColUser(TAB);
-						direccion = Entradas.inputDirUser();
+						if(pos > 0) direccion = Entradas.inputDirUser();
+						else direccion = 0;
 						ok = Comprovaciones.comprobar(FilaInici, ColInici, direccion, TAB, pos);
 						if(ok != true)System.out.println("No es pot posar el baixell, el baixell sortiria del taulell.");
 					}while(ok != true);

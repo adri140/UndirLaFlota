@@ -28,7 +28,6 @@ public class Joc {
 		IniMatrizes.inicializarSol(jug1Sol, TAB, '?'); //A de aigua
 		IniMatrizes.inicializarSol(maq1Sol, TAB, '?'); //A de aigua
 		IniMatrizes.inicializarMaqSecret(maq1Secret, TAB, 'B'); //B de vaixell
-		Salidas.mostrar(maq1Secret, TAB);
 		IniMatrizes.inicializarUserSecret(jug1Secret, TAB, 'B', 'A');
 		System.out.println("La teva distribució: ");
 		Salidas.mostrar(jug1Secret, TAB); 
