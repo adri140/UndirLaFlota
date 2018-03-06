@@ -8,7 +8,7 @@ package enfonsarlaflota;
  */
 public class Tiradas {
 	/**
-	 * Method <b>MaqARM</b>, emmagatzema les dades generades per la maquina per realitzar la tirada sobre el taulell de l'usuari. 
+	 * Method <b>MaqARM</b>, genera les dades necessàries per realitzar les tirades sobre el taulell de l’usuari. 
 	 * @param jug1Sol Taulell de l'usuari, no conte la solució.
 	 * @param jug1Secret Taulell de l'usuari, oculta la solució.
 	 * @param TAB Indica alçada i la amplada del taulell

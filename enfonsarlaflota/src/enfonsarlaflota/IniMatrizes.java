@@ -59,7 +59,7 @@ public class IniMatrizes {
 		}
 	}
 	/**
-	 * Method <b>inicializarUserSecret</b>, permet al usuari introduir la distribució dels vaixells que ell bulgui.
+	 * Method <b>inicializarUserSecret</b>, permet al usuari introduir la distribució dels vaixells que ell vulgui.
 	 * @param jug1Secret Taulell que conte la distribució dels vaixells del jugador.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @param barco Indica el caracter que utilitzara el programa per indicar que és un vaixell.

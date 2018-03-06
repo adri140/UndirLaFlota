@@ -8,7 +8,7 @@ package enfonsarlaflota;
  */
 public class Comprovaciones {
 	/**
-	 * Method <b>comprovarTirada</b>, comprova si el vaixell esta tocat o undit, i mostra per consola el resultat.
+	 * Method <b>comprovarTirada</b>, comprova si el vaixell esta tocat o enfonsat, i mostra per consola el resultat.
 	 * @param fila Indica la fila on esta situat el vaixell.
 	 * @param col Indica la columna on esta situat el vaixell.
 	 * @param MatSol És el taulell que es mostra a tot el món.

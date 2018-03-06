@@ -17,7 +17,7 @@ public class Entradas {
 	 */
 	final static Random rnd = new Random();
 	/**
-	 * Method <b>genRandom</b>, permet la generació aleatoria de numeros enters de 0 a la mida del taulell - 1.
+	 * Method <b>genRandom</b>, permet la generació aleatòria de números enters de 0 a la mida del taulell - 1.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @return Retorna un numero enter.
 	 */
@@ -61,7 +61,7 @@ public class Entradas {
 		return input;
 	}
 	/**
-	 * Method <b>inpInt</b>, permet la entrada de numeros enters per teclat.
+	 * Method <b>inpInt</b>, permet la entrada de números enters per teclat.
 	 * @param output String que mostrara per consola havans de la entrada de dades.
 	 * @return Retorna un numero enter al Method que la cridat.
 	 */
@@ -103,7 +103,7 @@ public class Entradas {
 		return input;
 	}
 	/**
-	 * Method <b>inpColUser</b> comprova que la entrada de les dades es coorecte.
+	 * Method <b>inpColUser</b> comprova que la entrada de les dades es correcte respecte la columna.
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @return Retorna un numero enter al Method que la cridat.
 	 */
@@ -118,7 +118,7 @@ public class Entradas {
 		return resp;
 	}
 	/**
-	 * Method <b>inputFilaUser</b> comprova que la entrada de les dades es coorecte.
+	 * Method <b>inputFilaUser</b> comprova que la entrada de les dades és correcte respecte a la fila i transforma el caràcter a el valor enter que te la fila.  
 	 * @param TAB Indica la alçada i la amplada del taulell.
 	 * @return Retorna un numero enter que indica la fila del taulell escollida per l'usuari.
 	 */
@@ -176,7 +176,7 @@ public class Entradas {
 		return num;
 	}
 	/**
-	 * Method <b>inputDirUser</b> comprova que la entrada de dades es coorecte.
+	 * Method <b>inputDirUser</b> comprova que la entrada de les dades és correcte respecte a la direcció que tindran els vaixells col·locats pel usuari. 
 	 * @return Retorna un numero enter que indica la direcció cap a on s'orientara el vaixell.
 	 */
 	public static int inputDirUser() {
